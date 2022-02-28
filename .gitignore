@@ -1,2 +1,8 @@
+# ignore CLion project configuration files
 /.idea/
+
+# ignore CMake build
 /cmake-build-debug/
+
+# ignore BOUML unnecessary files
+/UML-CppProject/*.session
