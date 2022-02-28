@@ -1,0 +1,160 @@
+format 224
+
+classcanvas 128023 class_ref 128023 // Window
+  classdiagramsettings member_max_width 0 end
+  xyzwh 12 18 2000 271 127
+end
+classcanvas 128151 class_ref 128151 // Scene
+  classdiagramsettings member_max_width 0 end
+  xyz 403 77 2000
+end
+classcanvas 128791 class_ref 134679 // GameScene
+  classdiagramsettings member_max_width 0 end
+  xyz 396 266 2000
+end
+classcanvas 129047 class_ref 134807 // MenuScene
+  classdiagramsettings member_max_width 0 end
+  xyzwh 511 72 2000 101 55
+end
+classcanvas 129175 class_ref 134935 // PauseMenuScene
+  classdiagramsettings member_max_width 0 end
+  xyz 689 58 2000
+end
+classcanvas 129303 class_ref 135063 // SettingsMenuScene
+  classdiagramsettings member_max_width 0 end
+  xyz 689 100 2000
+end
+classcanvas 129815 class_ref 135191 // Map
+  classdiagramsettings member_max_width 0 end
+  xyz 601 268 2000
+end
+classcanvas 129943 class_ref 135319 // Player
+  classdiagramsettings member_max_width 0 end
+  xyz 414 374 2000
+end
+classcanvas 130071 class_ref 135447 // Sprite
+  classdiagramsettings member_max_width 0 end
+  xyz 154 263 2000
+end
+classcanvas 130839 class_ref 135575 // EnnemySprite
+  classdiagramsettings member_max_width 0 end
+  xyz 136 387 2000
+end
+classcanvas 130967 class_ref 135703 // DestructibleSprite
+  classdiagramsettings member_max_width 0 end
+  xyz 239 387 2000
+end
+classcanvas 131095 class_ref 135831 // ImmutableSprite
+  classdiagramsettings member_max_width 0 end
+  xyz 14 387 2000
+end
+classcanvas 131607 class_ref 135959 // Chandelier
+  classdiagramsettings member_max_width 0 end
+  xyz 24 483 2000
+end
+classcanvas 131735 class_ref 136087 // Soldier
+  classdiagramsettings member_max_width 0 end
+  xyz 114 536 2000
+end
+classcanvas 131863 class_ref 136215 // HeavyGunner
+  classdiagramsettings member_max_width 0 end
+  xyz 173 536 2000
+end
+classcanvas 131991 class_ref 136343 // ExplosiveBarrel
+  classdiagramsettings member_max_width 0 end
+  xyz 267 481 2000
+end
+relationcanvas 128663 relation_ref 128151 // 
+  decenter_begin 621
+  from ref 128023 z 2001 to ref 128151
+  role_a_pos 311 75 3000 no_role_b
+  multiplicity_a_pos 385 104 3000 no_multiplicity_b
+end
+relationcanvas 128919 relation_ref 134679 // <generalisation>
+  decenter_begin 367
+  from ref 128791 z 2001 to ref 128151
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129431 relation_ref 134807 // <generalisation>
+  decenter_begin 681
+  decenter_end 272
+  from ref 129175 z 2001 to ref 129047
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129559 relation_ref 134935 // <generalisation>
+  decenter_begin 340
+  decenter_end 779
+  from ref 129303 z 2001 to ref 129047
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129687 relation_ref 135063 // <generalisation>
+  decenter_end 560
+  from ref 129047 z 2001 to ref 128151
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130199 relation_ref 135191 // <directional aggregation>
+  from ref 128791 z 2001 to ref 129943
+  role_a_pos 449 352 3000 no_role_b
+  multiplicity_a_pos 422 352 3000 no_multiplicity_b
+end
+relationcanvas 130455 relation_ref 135447 // <directional aggregation>
+  decenter_begin 536
+  from ref 128791 z 2001 to ref 129815
+  role_a_pos 534 266 3000 no_role_b
+  multiplicity_a_pos 583 295 3000 no_multiplicity_b
+end
+relationcanvas 130583 relation_ref 135575 // <directional aggregation>
+  decenter_end 560
+  from ref 128791 z 2001 to ref 130071
+  role_a_pos 214 264 3000 no_role_b
+  multiplicity_a_pos 214 293 3000 no_multiplicity_b
+end
+relationcanvas 131223 relation_ref 135703 // <generalisation>
+  decenter_begin 882
+  from ref 131095 z 2001 to ref 130071
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131351 relation_ref 135831 // <generalisation>
+  decenter_begin 425
+  from ref 130839 z 2001 to ref 130071
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131479 relation_ref 135959 // <generalisation>
+  decenter_begin 143
+  from ref 130967 z 2001 to ref 130071
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132119 relation_ref 136087 // <generalisation>
+  decenter_end 435
+  from ref 131607 z 2001 to ref 131095
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132247 relation_ref 136215 // <generalisation>
+  decenter_begin 805
+  decenter_end 256
+  from ref 131735 z 2001 to ref 130839
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132375 relation_ref 136343 // <generalisation>
+  decenter_begin 261
+  decenter_end 611
+  from ref 131863 z 2001 to ref 130839
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132759 relation_ref 136471 // <generalisation>
+  decenter_end 610
+  from ref 131991 z 2001 to ref 130967
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end
