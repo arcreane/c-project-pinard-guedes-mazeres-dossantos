@@ -1,9 +1,11 @@
 #include "raylib.h"
+#include "Window.h"
 
 int main() {
-    InitWindow(500, 200, "Hello World");
 
-    while (!WindowShouldClose()) {
+    Window w = Window();
+
+    while (w.isOpen()) {
         BeginDrawing();
         ClearBackground(BLACK);
         DrawText(
