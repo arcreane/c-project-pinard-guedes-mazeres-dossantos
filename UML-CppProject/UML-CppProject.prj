@@ -1,12 +1,12 @@
 format 224
 "UML-CppProject"
-  revision 3
-  modified_by 23 "CYTech Student"
+  revision 5
+  modified_by 23 "Ryugane"
 
 
   
   // class settings
-  default_attribute_visibility private default_relation_visibility private default_operation_visibility public
+  default_attribute_visibility public default_relation_visibility public default_operation_visibility public
   
   classdiagramsettings draw_all_relations yes hide_attributes no hide_operations no hide_getset_operations no hide_ports no show_members_full_definition no show_members_visibility no show_members_stereotype no show_members_context no show_members_multiplicity no show_members_initialization no show_attribute_modifiers no member_max_width 127 show_parameter_dir yes show_parameter_name yes package_name_in_tab no class_drawing_mode natural drawing_language uml show_context_mode no auto_label_position yes show_relation_modifiers no show_relation_visibility no show_infonote no shadow yes gradient none show_stereotype_properties no end
   
@@ -64,8 +64,8 @@ format 224
     
     activitydiagramsettings
      end
-    classdiagram 128023 "Class Diagram"
-      classdiagramsettings draw_all_relations no member_max_width 0 end
+    classdiagram 134551 "Class Diagram"
+      classdiagramsettings show_members_full_definition yes show_members_visibility yes show_members_stereotype yes member_max_width 0 end
       size A4
     end
 
@@ -82,10 +82,22 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      attribute 134807 "WINDOW_TITLE"
+	class_attribute const_attribute public explicit_type "char"
+	init_value "\"HELLO WORLD\""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
       attribute 128023 "WINDOW_WIDTH"
-	class_attribute const_attribute public explicit_type "uint"
+	class_attribute const_attribute public explicit_type "uint16_t"
 	multiplicity "1"
-	init_value "1800"
+	init_value "1600"
 	cpp_constexpr cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -97,7 +109,7 @@ ${inlines}
       end
 
       attribute 128151 "WINDOW_HEIGHT"
-	class_attribute const_attribute public explicit_type "int"
+	class_attribute const_attribute public explicit_type "uint16_t"
 	multiplicity "1"
 	init_value "900"
 	cpp_constexpr cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
@@ -111,8 +123,9 @@ ${inlines}
       end
 
       attribute 128279 "WINDOW_TARGET_FPS"
-	class_attribute const_attribute public explicit_type "uint"
+	class_attribute const_attribute public explicit_type "uint8_t"
 	multiplicity "1"
+	init_value "60"
 	cpp_constexpr cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -138,7 +151,7 @@ ${inlines}
       end
 
       operation 128151 "isOpen"
-	class_operation public explicit_return_type "bool"
+	public explicit_return_type "bool"
 	multiplicity "1"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -160,6 +173,21 @@ ${inlines}
 	    classrelation_ref 128151 // currentScreen ()
 	  b parent class_ref 128151 // Scene
       end
+
+      operation 141975 "update"
+	public explicit_return_type "void"
+	multiplicity "1"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 128151 "Scene"
@@ -175,6 +203,88 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      operation 134807 "getFirstScene"
+	class_operation public explicit_return_type "Scene*"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 134935 "draw"
+	stereotype "const"
+	abstract cpp_virtual public explicit_return_type "void"
+	multiplicity "1"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 142103 "update"
+	abstract cpp_virtual public explicit_return_type "Scene*"
+	multiplicity "1"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 134807 "MainMenuScene"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 135063 // <generalisation>
+	relation 135063 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 135063 // <generalisation>
+	  b parent class_ref 128151 // Scene
+      end
+
+      operation 142359 "draw"
+	stereotype "const"
+	cpp_virtual public explicit_return_type "void"
+	multiplicity "1"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 142487 "update"
+	cpp_virtual public explicit_return_type "Scene*"
+	multiplicity "1"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
 
     class 134679 "GameScene"
@@ -198,35 +308,57 @@ ${inlines}
 	  b parent class_ref 128151 // Scene
       end
 
-      classrelation 135191 // player (<directional aggregation>)
-	relation 135191 o-->
-	  a role_name "player" multiplicity "1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+      attribute 141719 "score"
+	private explicit_type "uint64_t"
+	multiplicity "1"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 135191 // player (<directional aggregation>)
-	  b parent class_ref 135319 // Player
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
 
-      classrelation 135703 // gameMap (<directional aggregation>)
-	relation 135447 o-->
-	  a role_name "gameMap" multiplicity "1" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 135703 // gameMap (<directional aggregation>)
-	  b parent class_ref 135191 // Map
-      end
-
-      classrelation 135831 // sprites (<directional aggregation>)
+      classrelation 135831 // entities (<directional aggregation>)
 	relation 135575 o-->
-	  a role_name "sprites" multiplicity "*" private
+	  a role_name "entities" multiplicity "*" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
 "
-	    classrelation_ref 135831 // sprites (<directional aggregation>)
-	  b parent class_ref 135447 // Sprite
+	    classrelation_ref 135831 // entities (<directional aggregation>)
+	  b parent class_ref 135447 // Entity
+      end
+
+      operation 142615 "draw"
+	stereotype "const"
+	cpp_virtual public explicit_return_type "void"
+	multiplicity "1"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 142743 "update"
+	cpp_virtual public explicit_return_type "Scene*"
+	multiplicity "1"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
-    class 134807 "MenuScene"
+    class 135447 "Entity"
       abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -239,16 +371,87 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 135063 // <generalisation>
-	relation 135063 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 135063 // <generalisation>
-	  b parent class_ref 128151 // Scene
+      attribute 141335 "spritePath"
+	private explicit_type "string"
+	multiplicity "1"
+	stereotype "const"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 141463 "xPos"
+	private explicit_type "uint16_t"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 141591 "yPos"
+	private explicit_type "uint16_t"
+	multiplicity "1"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 142871 "getSpritePath"
+	stereotype "final"
+	abstract cpp_virtual public explicit_return_type "string"
+	multiplicity "1"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 142999 "getPosition"
+	stereotype "final"
+	abstract cpp_virtual public explicit_return_type "void"
+	multiplicity "1"
+	nparams 2
+	  param out name "xPos" explicit_type "uint16_ptr"
+	  param out name "yPos" explicit_type "uint16_ptr"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${v0}, ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 143127 "update"
+	abstract cpp_virtual public explicit_return_type "bool"
+	multiplicity "1"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
       end
     end
 
-    class 134935 "PauseMenuScene"
+    class 141975 "Player"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -261,16 +464,16 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 134807 // <generalisation>
-	relation 134807 ---|>
+      classrelation 142359 // <generalisation>
+	relation 142103 ---|>
 	  a public
 	    cpp default "${type}"
-	    classrelation_ref 134807 // <generalisation>
-	  b parent class_ref 134807 // MenuScene
+	    classrelation_ref 142359 // <generalisation>
+	  b parent class_ref 135447 // Entity
       end
     end
 
-    class 135063 "SettingsMenuScene"
+    class 142103 "Ennemy"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -283,16 +486,16 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 134935 // <generalisation>
-	relation 134935 ---|>
+      classrelation 142487 // <generalisation>
+	relation 142231 ---|>
 	  a public
 	    cpp default "${type}"
-	    classrelation_ref 134935 // <generalisation>
-	  b parent class_ref 134807 // MenuScene
+	    classrelation_ref 142487 // <generalisation>
+	  b parent class_ref 135447 // Entity
       end
     end
 
-    class 135191 "Map"
+    class 142359 "BaseEnnemy"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -305,61 +508,16 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-    end
-
-    class 135319 "Player"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-    end
-
-    class 135447 "Sprite"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-    end
-
-    class 135575 "EnnemySprite"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      classrelation 136215 // <generalisation>
-	relation 135831 ---|>
+      classrelation 142743 // <generalisation>
+	relation 142487 ---|>
 	  a public
 	    cpp default "${type}"
-	    classrelation_ref 136215 // <generalisation>
-	  b parent class_ref 135447 // Sprite
+	    classrelation_ref 142743 // <generalisation>
+	  b parent class_ref 142103 // Ennemy
       end
     end
 
-    class 135703 "DestructibleSprite"
+    class 142487 "StrongEnnemy"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -372,123 +530,14 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 136343 // <generalisation>
-	relation 135959 ---|>
+      classrelation 142871 // <generalisation>
+	relation 142615 ---|>
 	  a public
 	    cpp default "${type}"
-	    classrelation_ref 136343 // <generalisation>
-	  b parent class_ref 135447 // Sprite
+	    classrelation_ref 142871 // <generalisation>
+	  b parent class_ref 142103 // Ennemy
       end
     end
 
-    class 135831 "ImmutableSprite"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      classrelation 136087 // <generalisation>
-	relation 135703 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 136087 // <generalisation>
-	  b parent class_ref 135447 // Sprite
-      end
-    end
-
-    class 135959 "Chandelier"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      classrelation 136471 // <generalisation>
-	relation 136087 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 136471 // <generalisation>
-	  b parent class_ref 135831 // ImmutableSprite
-      end
-    end
-
-    class 136087 "Soldier"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      classrelation 136599 // <generalisation>
-	relation 136215 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 136599 // <generalisation>
-	  b parent class_ref 135575 // EnnemySprite
-      end
-    end
-
-    class 136215 "HeavyGunner"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      classrelation 136727 // <generalisation>
-	relation 136343 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 136727 // <generalisation>
-	  b parent class_ref 135575 // EnnemySprite
-      end
-    end
-
-    class 136343 "ExplosiveBarrel"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      classrelation 136855 // <generalisation>
-	relation 136471 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 136855 // <generalisation>
-	  b parent class_ref 135703 // DestructibleSprite
-      end
-    end
   end
 end
