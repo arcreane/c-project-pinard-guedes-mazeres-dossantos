@@ -1,0 +1,187 @@
+format 224
+
+classinstance 129175 class_ref 149015 // main
+  name ""   xyz 125.927 34.1757 2005 life_line_z 2000
+classinstance 130839 class_ref 128023 // Window
+  name ""   xyz 288.253 32.398 2005 life_line_z 2000
+classinstance 131863 class_ref 128151 // Scene
+  name ""   xyz 438.824 30.5092 2000 life_line_z 2000
+fragment 132887 "loop"
+  xyzwh 21.0398 290.742 1965 669 542
+end
+textcanvas 133015 "[isOpen == true]"
+  xyzwh 25.1633 317.352 2020 102 21
+classinstance 133655 class_ref 135447 // Entity
+  name "entities[k]"   xyz 559.892 28.0488 2000 life_line_z 2000
+fragment 133783 "loop k"
+  xyzwh 389.076 377.657 1970 286 204
+end
+fragment 135447 "loop k"
+  xyzwh 395.744 634.048 1970 243 70
+end
+durationcanvas 131095 classinstance_ref 129175 // :main
+  xyzwh 144 115.556 2010 11 765
+end
+durationcanvas 131223 classinstance_ref 130839 // :Window
+  xyzwh 313 113.705 2010 11 60
+end
+durationcanvas 132119 classinstance_ref 131863 // :Scene
+  xyzwh 459 126.528 2010 11 40
+end
+durationcanvas 132503 classinstance_ref 130839 // :Window
+  xyzwh 313 217.434 2010 11 28
+end
+durationcanvas 133143 classinstance_ref 130839 // :Window
+  xyzwh 313 340.909 2010 11 412
+end
+durationcanvas 133399 classinstance_ref 131863 // :Scene
+  xyzwh 459 353.679 2010 11 249
+end
+durationcanvas 133911 classinstance_ref 133655 // entities[k]:Entity
+  xyzwh 607 452.79 2010 11 30
+end
+durationcanvas 134295 classinstance_ref 133655 // entities[k]:Entity
+  xyzwh 607 512.862 2010 11 27
+end
+durationcanvas 135191 classinstance_ref 131863 // :Scene
+  xyzwh 459 615.515 2010 11 113
+end
+durationcanvas 135575 classinstance_ref 133655 // entities[k]:Entity
+  xyzwh 607 653.526 2010 11 34
+end
+durationcanvas 136215 classinstance_ref 130839 // :Window
+  xyzwh 313 782.12 2010 11 30
+end
+durationcanvas 136599 classinstance_ref 133655 // entities[k]:Entity
+  xyzwh 607 133.319 2010 11 28
+end
+msg 131351 synchronous
+  from durationcanvas_ref 131095
+  to durationcanvas_ref 131223
+  yz 115 2015 msg operation_ref 128279 // "Window()"
+  stereotype "<<create>>" xyz 233 83 3000
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 240 100
+msg 131735 return
+  from durationcanvas_ref 131223
+  to durationcanvas_ref 131095
+  yz 163 2015 explicitmsg "gameWindow"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 162 173
+msg 132247 synchronous
+  from durationcanvas_ref 131223
+  to durationcanvas_ref 132119
+  yz 127 2015 msg operation_ref 134807 // "getFirstScene() : Scene*"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 364 112
+msg 132375 return
+  from durationcanvas_ref 132119
+  to durationcanvas_ref 131223
+  yz 157 2020 explicitmsg "currentScene"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 329 168
+msg 132631 synchronous
+  from durationcanvas_ref 131095
+  to durationcanvas_ref 132503
+  yz 218 2015 msg operation_ref 128151 // "isOpen() : bool [1]"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 252 202
+msg 132759 return
+  from durationcanvas_ref 132503
+  to durationcanvas_ref 131095
+  yz 234 2020 explicitmsg "isOpen"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 165 242
+msg 133271 synchronous
+  from durationcanvas_ref 131095
+  to durationcanvas_ref 133143
+  yz 342 2015 msg operation_ref 141975 // "update() : void [1]"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 253 323
+msg 133527 synchronous
+  from durationcanvas_ref 133143
+  to durationcanvas_ref 133399
+  yz 353 2015 msg operation_ref 134935 // "draw() : void [1]"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 416 339
+msg 134039 synchronous
+  from durationcanvas_ref 133399
+  to durationcanvas_ref 133911
+  yz 453 2015 msg operation_ref 142871 // "getSpritePath() : string [1]"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 516 438
+msg 134167 return
+  from durationcanvas_ref 133911
+  to durationcanvas_ref 133399
+  yz 471 2015 explicitmsg "sprite"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 481 478
+msg 134423 synchronous
+  from durationcanvas_ref 133399
+  to durationcanvas_ref 134295
+  yz 511 2015 msg operation_ref 142999 // "getPosition(out xPos : uint16_ptr, out yPos : uint16_ptr) : void [1]"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 526 497
+msg 134551 return
+  from durationcanvas_ref 134295
+  to durationcanvas_ref 133399
+  yz 526 2015 explicitmsg "xPos, yPos"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 478 534
+msg 135063 return
+  from durationcanvas_ref 133399
+  to durationcanvas_ref 133143
+  yz 589 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 135319 synchronous
+  from durationcanvas_ref 133143
+  to durationcanvas_ref 135191
+  yz 615 2015 msg operation_ref 142103 // "update() : Scene* [1]"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 405 600
+msg 135703 synchronous
+  from durationcanvas_ref 135191
+  to durationcanvas_ref 135575
+  yz 654 2015 msg operation_ref 143127 // "update() : bool [1]"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 515 638
+msg 135831 return
+  from durationcanvas_ref 135575
+  to durationcanvas_ref 135191
+  yz 676 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 135959 return
+  from durationcanvas_ref 135191
+  to durationcanvas_ref 133143
+  yz 715 2015 explicitmsg "currentScene"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 327 724
+msg 136087 return
+  from durationcanvas_ref 133143
+  to durationcanvas_ref 131095
+  yz 742 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 136343 synchronous
+  from durationcanvas_ref 131095
+  to durationcanvas_ref 136215
+  yz 782 2015 msg operation_ref 128151 // "isOpen() : bool [1]"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 259 769
+msg 136471 return
+  from durationcanvas_ref 136215
+  to durationcanvas_ref 131095
+  yz 801 2015 explicitmsg "isOpen"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 160 810
+msg 136727 synchronous
+  from durationcanvas_ref 132119
+  to durationcanvas_ref 136599
+  yz 134 2015 unspecifiedmsg
+  stereotype "<<create>>" xyz 532 121 3000
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 136855 return
+  from durationcanvas_ref 136599
+  to durationcanvas_ref 132119
+  yz 151 2020 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+end

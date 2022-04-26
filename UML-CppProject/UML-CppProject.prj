@@ -1,6 +1,6 @@
 format 224
 "UML-CppProject"
-  revision 5
+  revision 6
   modified_by 23 "Ryugane"
 
 
@@ -67,6 +67,11 @@ format 224
     classdiagram 134551 "Class Diagram"
       classdiagramsettings show_members_full_definition yes show_members_visibility yes show_members_stereotype yes member_max_width 0 end
       size A4
+    end
+
+    sequencediagram 141079 "Main Loop"
+      sequencediagramsettings end
+      overlapping_bars size A4
     end
 
     class 128023 "Window"
@@ -537,6 +542,21 @@ ${inlines}
 	    classrelation_ref 142871 // <generalisation>
 	  b parent class_ref 142103 // Ennemy
       end
+    end
+
+    class 149015 "main"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
     end
 
   end
