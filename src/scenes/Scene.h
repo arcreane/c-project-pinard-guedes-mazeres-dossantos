@@ -19,31 +19,16 @@ public:
     static Scene *getFirstScene();
 
     /**
-     * Draws the scene and updates its components.
+     * Draws the scene.
+     */
+    virtual void draw() const = 0;
+
+    /**
+     * Updates the components of the scene.
      *
      * @return A pointer to the next scene, or <code>this</code> if the scene
      * has not changed.
      */
-    virtual Scene *draw() = 0;
+    virtual Scene *update() = 0;
 
-};
-
-
-/**
- * The <code>MainMenuScene</code> class encapsulate the main menu of the game.
- */
-class MainMenuScene : public Scene {
-
-public:
-    Scene *draw() override;
-};
-
-
-/**
- * The <code>GameScene</code> class encapsulate the main game scene of the game.
- */
-class GameScene : public Scene {
-
-public:
-    Scene *draw() override;
 };

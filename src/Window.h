@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include "Scene.h"
+#include "scenes/Scene.h"
 
 /**
  * The Window class encapsulates the existence of a window, and defines a
@@ -46,7 +46,7 @@ public:
      *
      * @sa Scene::draw()
      */
-    void draw();
+    void update();
 
 private:
 

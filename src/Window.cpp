@@ -8,13 +8,14 @@ Window::Window() : currentScene{Scene::getFirstScene()} {
             Window::WINDOW_TITLE
     );
     SetTargetFPS(Window::WINDOW_TARGET_FPS);
-    SetExitKey(KEY_F12);
+    SetExitKey(KEY_F4);
 }
 
 bool Window::isOpen() { //NOLINT(readability-convert-member-functions-to-static)
     return !WindowShouldClose();
 }
 
-void Window::draw() {
-    this->currentScene = this->currentScene->draw();
+void Window::update() {
+    this->currentScene->draw();
+    this->currentScene = this->currentScene->update();
 }
