@@ -21,7 +21,7 @@ public:
     /// Game window resolution (width)
     static constexpr uint16_t WINDOW_WIDTH = 1600;
 
-    ///< Game window resolution (height)
+    /// Game window resolution (height)
     static constexpr uint16_t WINDOW_HEIGHT = 900;
 
     /// Game window target framerate per second
@@ -43,8 +43,6 @@ public:
     /**
      * Draws the window (delegates to <code>Scene::draw()</code>) and updates the current scene if changed.
      * Implements the <a href="https://refactoring.guru/design-patterns/state">State design pattern</a>.
-     *
-     * @sa Scene::draw()
      */
     void update();
 
