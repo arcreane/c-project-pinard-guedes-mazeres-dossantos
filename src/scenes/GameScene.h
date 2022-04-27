@@ -12,6 +12,18 @@ class GameScene : public Scene {
 
 public:
 
+    /**
+     * Default constructor of the GameScene class, loads the background
+     * texture to the GPU.
+     */
+    GameScene();
+
+    /**
+     * Destructor of the GameScene class, unloads the background texture from
+     * the GPU.
+     */
+    ~GameScene();
+
     void draw() const override;
 
     Scene *update() override;
@@ -26,5 +38,10 @@ private:
     /**
      * List of the entities on the scene.
      */
-    std::vector<Entity> listEntities;
+    std::vector<Entity *> listEntities;
+
+    /**
+     * Background texture of the scene.
+     */
+     Texture2D background;
 };
