@@ -17,9 +17,9 @@ public:
     /**
      * Creates a new entity.
      * @param[in] xPos, yPos - initial coordinates of the entity
-     * @param[in] spritePath - pointer to the sprite image
+     * @param[in] spritePath - pointer to the sprite texture resource
      */
-    Entity(uint16_t xPos, uint16_t yPos, Image *sprite);
+    Entity(uint16_t xPos, uint16_t yPos, Texture2D *sprite);
 
     /**
      * Getter for the position of the entity.
@@ -30,9 +30,9 @@ public:
     /**
      * Getter for the sprite image of the entity.
      *
-     * @return pointer to the sprite image resource loaded in CPU
+     * @return pointer to the sprite texture resource loaded in CPU
      */
-    virtual const Image *getSpritePath() const final;
+    virtual const Texture2D *getSpritePath() const final;
 
     /**
      * Updates the entity.
@@ -44,9 +44,9 @@ public:
 private:
 
     /**
-     * Pointer to the sprite image resource loaded in CPU
+     * Pointer to the sprite texture resource loaded in CPU
      */
-    const Image *sprite;
+    const Texture2D *sprite;
 
     /**
      * Coordinates of the entity on the scene.
