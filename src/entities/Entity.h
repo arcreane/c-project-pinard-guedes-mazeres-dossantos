@@ -24,14 +24,14 @@ public:
      * Getter for the position of the entity.
      * @param[out] xPos, yPos - coordinates of the entity on the scene
      */
-    virtual void getPosition(uint16_t *xPos, uint16_t *yPos) const final = 0;
+    virtual void getPosition(uint16_t *xPos, uint16_t *yPos) const final;
 
     /**
      * Getter for the sprite resource for the entity.
      *
      * @return the sprite resource location for the entity
      */
-    virtual std::string getSpritePath() const final = 0;
+    virtual std::string getSpritePath() const final;
 
     /**
      * Updates the entity.
