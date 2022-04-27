@@ -1,15 +1,13 @@
 #include "Entity.h"
 
-#include <utility>
-
-Entity::Entity(uint16_t xPos, uint16_t yPos, std::string spritePath) :
-    xPos {xPos}, yPos {yPos}, spritePath {std::move(spritePath)} {}
+Entity::Entity(uint16_t xPos, uint16_t yPos, Image *sprite) :
+    xPos {xPos}, yPos {yPos}, sprite {sprite} {}
 
 void Entity::getPosition(uint16_t *x, uint16_t *y) const {
     *x = this->xPos;
     *y = this->yPos;
 }
 
-std::string Entity::getSpritePath() const {
-    return this->spritePath;
+const Image *Entity::getSpritePath() const {
+    return this->sprite;
 }

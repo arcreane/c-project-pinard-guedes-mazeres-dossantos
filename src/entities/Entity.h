@@ -1,6 +1,7 @@
 #pragma once
 
-#include <string>
+#include <cstdint>
+#include "raylib.h"
 
 /**
  * The Entity abstract class defines the basic interface for the entities to be
@@ -16,9 +17,9 @@ public:
     /**
      * Creates a new entity.
      * @param[in] xPos, yPos - initial coordinates of the entity
-     * @param[in] spritePath - path to the location of the sprite resource
+     * @param[in] spritePath - pointer to the sprite image
      */
-    Entity(uint16_t xPos, uint16_t yPos, std::string spritePath);
+    Entity(uint16_t xPos, uint16_t yPos, Image *sprite);
 
     /**
      * Getter for the position of the entity.
@@ -27,11 +28,11 @@ public:
     virtual void getPosition(uint16_t *xPos, uint16_t *yPos) const final;
 
     /**
-     * Getter for the sprite resource for the entity.
+     * Getter for the sprite image of the entity.
      *
-     * @return the sprite resource location for the entity
+     * @return pointer to the sprite image resource loaded in CPU
      */
-    virtual std::string getSpritePath() const final;
+    virtual const Image *getSpritePath() const final;
 
     /**
      * Updates the entity.
@@ -43,10 +44,9 @@ public:
 private:
 
     /**
-     * Path to the sprite resource, relative to
-     * <code>/assets/</code>
+     * Pointer to the sprite image resource loaded in CPU
      */
-    const std::string spritePath;
+    const Image *sprite;
 
     /**
      * Coordinates of the entity on the scene.
