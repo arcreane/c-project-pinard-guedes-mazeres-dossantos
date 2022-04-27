@@ -20,7 +20,7 @@ public:
 
     /**
      * Destructor of the GameScene class, unloads the background texture from
-     * the GPU.
+     * the GPU and saves the score in the leaderboard text file.
      */
     ~GameScene();
 
@@ -29,6 +29,11 @@ public:
     Scene *update() override;
 
 private:
+
+    /**
+     * Path to the leaderboard text file.
+     */
+    static constexpr char LEADERBOARD_PATH[] = "./leaderboard.txt";
 
     /**
      * Score for the current game.
