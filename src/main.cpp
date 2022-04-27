@@ -5,6 +5,6 @@ int main() {
     Window w = Window();
 
     while (w.isOpen()) {
-        w.draw();
+        w.update();
     }
 }
