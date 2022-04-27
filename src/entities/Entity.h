@@ -5,6 +5,9 @@
 /**
  * The Entity abstract class defines the basic interface for the entities to be
  * interacted with from the Scene.
+ *
+ * @author Lucas Pinard (lucasP243)
+ * @version 0.1
  */
 class Entity {
 
