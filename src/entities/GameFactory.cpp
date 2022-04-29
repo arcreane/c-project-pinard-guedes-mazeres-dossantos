@@ -1,14 +1,15 @@
 #include "scenes/GameScene.h"
 #include "entities/enemies/Enemy.h"
+#include "GameFactory.h"
 
-void GameScene::factoryNewGame() {
+void GameFactory::factoryNewGame(std::vector<Entity *> &list) {
 
     // TODO: create player when implemented
 
-    this->factoryNewHorde();
+    GameFactory::factoryNewHorde(list);
 }
 
-void GameScene::factoryNewHorde() {
+void GameFactory::factoryNewHorde(std::vector<Entity *> &list) {
 
     Enemy::resetHordeBehavior();
 

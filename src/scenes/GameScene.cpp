@@ -1,14 +1,17 @@
 #include <fstream>
 #include <ctime>
 #include <iostream>
+#include <algorithm>
 #include "GameScene.h"
 #include "MainMenuScene.h"
 #include "raylib.h"
+#include "entities/GameFactory.h"
+#include "entities/enemies/Enemy.h"
 
 GameScene::GameScene() :
         background{LoadTexture(ASSETS_PATH "grass.png")} {
 
-    this->factoryNewGame();
+    GameFactory::factoryNewGame(this->listEntities);
 }
 
 GameScene::~GameScene() {
@@ -61,12 +64,25 @@ void GameScene::draw() const {
 
 Scene *GameScene::update() {
 
-    for (auto it = this->listEntities.begin(); it != this->listEntities.end(); it++) {
-        if((*it)->update() == false) {
+    // Update all entities
+    for (auto it = this->listEntities.begin();
+         it != this->listEntities.end(); it++) {
+        if ((*it)->update() == false) {
             this->listEntities.erase(it);
         }
     }
 
+    // If there is no more enemies, create new horde
+    if (std::find_if(
+            this->listEntities.begin(), this->listEntities.end(),
+            [](Entity *it) -> bool {
+                // instanceof
+                return dynamic_cast<const Enemy *>(it) != nullptr;
+            }) == this->listEntities.end()) {
+        GameFactory::factoryNewHorde(this->listEntities);
+    }
+
+    // Exit game on Escape press
     if (IsKeyPressed(KEY_ESCAPE)) {
         delete this;
         return new MainMenuScene();
