@@ -14,14 +14,14 @@ public:
     /**
      * Create a new Enemy
      * @param xPos, yPos, sprite params for Entity
-     * @param life when the life = 0, the ennemy is dead
-     * @param strength is the resistance of ennemy when he is attacked
-     * @param firerate is the shooting speed in seconds
+     * @param life when the life = 0, the enemy is dead
+     * @param strength is the resistance of enemy when he is attacked
+     * @param fireRate is the shooting speed in seconds
      */
-    Enemy(uint16_t xPos, uint16_t yPos, Texture2D sprite, double life, double strength, double firerate);
+    Enemy(uint16_t xPos, uint16_t yPos, Texture2D sprite, double life, double strength, double fireRate);
 
     /**
-     * Getter for life with a damage if the ennemy is attaqued
+     * Getter for life with a damage if the enemy is attacked
      * @param l life
      * @param damage
      */
@@ -34,20 +34,57 @@ public:
     virtual void getStrength(double* s) const final;
 
     /**
-     * Getter for firerate capacity
-     * @param f firerate
+     * Getter for fireRate capacity
+     * @param f fireRate
      */
-    virtual void getFirerate(double* f) const final;
+    virtual void getFireRate(double* f) const final;
 
     /**
      * Define programmed enemy movement
      */
     virtual void setNewPosition() = 0;
 
+    /**
+     * Resets the horde, increasing its speed.
+     *
+     * @author Lucas Pinard (lucasP243)
+     */
+    static void resetHordeBehavior();
+
+    /**
+     * Updates the horde behavior (to be called after each enemy has been
+     * updated).
+     *
+     * @author Lucas Pinard (lucasP243)
+     */
+    static void updateHordeBehavior();
+
 private:
 
     /**
-     * params for the capacities of an ennemy
+     * params for the capacities of an enemy
      */
-    double life, strength, firerate;
+    double life, strength, fireRate;
+
+    /**
+     * Speed of the enemy, in pixels per frame.
+     *
+     * @author Lucas Pinard (lucasP243)
+     */
+    static int16_t hordeSpeed;
+
+    /**
+     * Flag indicating whether the enemy should advance.
+     *
+     * @author Lucas Pinard (lucasP243)
+     */
+    static bool hordeShouldAdvance;
+
+    /**
+     * Flag indicating whether the enemy should change direction.
+     *
+     * @author Lucas Pinard (lucasP243)
+     */
+    static bool hordeShouldTurnAround;
+
 };
