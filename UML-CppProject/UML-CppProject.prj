@@ -1,6 +1,6 @@
 format 224
 "UML-CppProject"
-  revision 6
+  revision 7
   modified_by 23 "Ryugane"
 
 
@@ -65,8 +65,8 @@ format 224
     activitydiagramsettings
      end
     classdiagram 134551 "Class Diagram"
-      classdiagramsettings show_members_full_definition yes show_members_visibility yes show_members_stereotype yes member_max_width 0 end
-      size A4
+      classdiagramsettings draw_all_relations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes member_max_width 0 end
+      size A3
     end
 
     sequencediagram 141079 "Main Loop"
@@ -89,6 +89,7 @@ ${inlines}
       
       attribute 134807 "WINDOW_TITLE"
 	class_attribute const_attribute public explicit_type "char"
+	multiplicity "*"
 	init_value "\"HELLO WORLD\""
 	cpp_decl ""
 	java_decl ""
@@ -326,12 +327,13 @@ ${inlines}
 	MysqlColumn
       end
 
-      classrelation 135831 // entities (<directional aggregation>)
+      classrelation 135831 // listEntities (<directional aggregation>)
 	relation 135575 o-->
-	  a role_name "entities" multiplicity "*" private
+	  stereotype "vector"
+	  a role_name "listEntities" multiplicity "*" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
 "
-	    classrelation_ref 135831 // entities (<directional aggregation>)
+	    classrelation_ref 135831 // listEntities (<directional aggregation>)
 	  b parent class_ref 135447 // Entity
       end
 
@@ -361,6 +363,71 @@ ${inlines}
 	
 	
       end
+
+      attribute 148247 "LEADERBOARD_PATH"
+	class_attribute const_attribute private explicit_type "char"
+	multiplicity "*"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 148375 "background"
+	private explicit_type "Texture2D"
+	multiplicity "1"
+	stereotype "const"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 149655 "factoryNewGame"
+	private explicit_return_type "void"
+	multiplicity "1"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 149783 "factoryNewHorde"
+	private explicit_return_type "void"
+	multiplicity "1"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 149655 // <dependency>
+	relation 149399 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 149655 // <dependency>
+	  b parent class_ref 155543 // GameFactory
+      end
     end
 
     class 135447 "Entity"
@@ -376,20 +443,6 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      attribute 141335 "spritePath"
-	private explicit_type "string"
-	multiplicity "1"
-	stereotype "const"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       attribute 141463 "xPos"
 	private explicit_type "uint16_t"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
@@ -415,17 +468,18 @@ ${inlines}
 	MysqlColumn
       end
 
-      operation 142871 "getSpritePath"
-	stereotype "final"
-	abstract cpp_virtual public explicit_return_type "string"
+      attribute 141335 "sprit"
+	private explicit_type "Texture2D"
 	multiplicity "1"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	stereotype "const"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	
-	
-	
-	
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
 
       operation 142999 "getPosition"
@@ -436,6 +490,19 @@ ${inlines}
 	  param out name "xPos" explicit_type "uint16_ptr"
 	  param out name "yPos" explicit_type "uint16_ptr"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${v0}, ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 142871 "getSprite"
+	stereotype "final"
+	abstract cpp_virtual public explicit_return_type "Texture2D"
+	multiplicity "1"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	
 	
@@ -559,5 +626,83 @@ ${inlines}
       
     end
 
+    class 155543 "GameFactory"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 149911 "GameFactory"
+	private explicit_return_type ""
+	multiplicity "1"
+	nparams 0
+	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 150039 "factoryNewGame"
+	class_operation public explicit_return_type "void"
+	multiplicity "1"
+	nparams 1
+	  param out name "list" explicit_type "vector<Entity *>"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 150167 "factoryNewHorde"
+	class_operation public explicit_return_type "void"
+	multiplicity "1"
+	nparams 1
+	  param out name "list" explicit_type "vector<Entity *>"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 149783 // <dependency>
+	relation 149527 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 149783 // <dependency>
+	  b parent class_ref 141975 // Player
+      end
+
+      classrelation 149911 // <dependency>
+	relation 149655 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 149911 // <dependency>
+	  b parent class_ref 142103 // Ennemy
+      end
+    end
   end
 end
