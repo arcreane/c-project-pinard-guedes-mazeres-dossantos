@@ -40,9 +40,10 @@ public:
     virtual void getFireRate(double* f) const final;
 
     /**
-     * Define programmed enemy movement
+     * Override of the Entity function
+     * @return true if the Enemy is alive, and false if he is dead
      */
-    virtual void setNewPosition() = 0;
+    bool update() override;
 
     /**
      * Resets the horde, increasing its speed.

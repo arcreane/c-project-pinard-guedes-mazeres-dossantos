@@ -19,6 +19,10 @@ void Enemy::getFireRate(double *f) const {
     *f = this->fireRate;
 }
 
+bool Enemy::update() {
+    return this->life > 0;
+}
+
 void Enemy::resetHordeBehavior() {
     Enemy::hordeSpeed = (int16_t) (abs(Enemy::hordeSpeed) + 10);
     Enemy::hordeShouldAdvance = false;
