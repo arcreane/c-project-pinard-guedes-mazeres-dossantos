@@ -6,7 +6,10 @@
 #include "raylib.h"
 
 GameScene::GameScene() :
-        background{LoadTexture(ASSETS_PATH "grass.png")} {}
+        background{LoadTexture(ASSETS_PATH "grass.png")} {
+
+    this->factoryNewGame();
+}
 
 GameScene::~GameScene() {
     UnloadTexture(this->background);
@@ -57,6 +60,13 @@ void GameScene::draw() const {
 }
 
 Scene *GameScene::update() {
+
+    for (auto it = this->listEntities.begin(); it != this->listEntities.end(); it++) {
+        if((*it)->update() == false) {
+            this->listEntities.erase(it);
+        }
+    }
+
     if (IsKeyPressed(KEY_ESCAPE)) {
         delete this;
         return new MainMenuScene();

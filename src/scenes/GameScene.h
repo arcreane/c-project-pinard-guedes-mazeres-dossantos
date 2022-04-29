@@ -49,4 +49,14 @@ private:
      * Background texture of the scene.
      */
      Texture2D background;
+
+     /**
+      * Initializes the list of entities for a new game.
+      */
+     void factoryNewGame();
+
+     /**
+      * Filling the list of entities with a new horde of enemies.
+      */
+     void factoryNewHorde();
 };
