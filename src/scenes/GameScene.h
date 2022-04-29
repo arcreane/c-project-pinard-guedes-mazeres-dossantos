@@ -48,5 +48,5 @@ private:
     /**
      * Background texture of the scene.
      */
-     Texture2D background;
+     const Texture2D background;
 };
