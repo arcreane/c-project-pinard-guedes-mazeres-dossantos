@@ -1,5 +1,5 @@
 #include "scenes/GameScene.h"
-#include "entities/ennemies/Enemy.h"
+#include "entities/enemies/Enemy.h"
 
 void GameScene::factoryNewGame() {
 
@@ -12,5 +12,5 @@ void GameScene::factoryNewHorde() {
 
     Enemy::resetHordeBehavior();
 
-    //TODO: create ennemies when implemented
+    //TODO: create enemies when implemented
 }
