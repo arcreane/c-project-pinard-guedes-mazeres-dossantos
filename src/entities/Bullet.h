@@ -14,7 +14,7 @@
 class Bullet : public Entity
 {
 public :
-    Bullet(uint16_t xPos, uint16_t yPos, Texture2D sprite, float speed);
+    Bullet(uint16_t xPos, uint16_t yPos, float speed);
     void Update();
     bool IsHit();
     void Reset(uint16_t xPos);

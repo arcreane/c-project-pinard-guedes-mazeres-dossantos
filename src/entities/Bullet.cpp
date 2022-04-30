@@ -1,7 +1,7 @@
 #include "Bullet.h"
 
-Bullet::Bullet(uint16_t xPos, uint16_t yPos, Texture2D sprite, float speed)
-        : Entity(xPos, yPos, sprite), speed(speed), hit(true) {
+Bullet::Bullet(uint16_t xPos, uint16_t yPos, float speed)
+        : Entity(xPos, yPos, ASSETS_PATH "shoot.png"), speed(speed), hit(true) {
 }
 
 void Bullet::Update()
