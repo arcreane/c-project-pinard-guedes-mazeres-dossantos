@@ -19,6 +19,7 @@ public :
     bool IsHit();
     void Reset(uint16_t xPos);
     void Draw();
+    bool update() override;
 
 private:
     float speed;

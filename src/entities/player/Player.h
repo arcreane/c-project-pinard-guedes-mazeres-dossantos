@@ -20,12 +20,13 @@ class Player : public Entity{
 public:
     Player(uint16_t xPos, uint16_t yPos, float speed);
 
-    Player(uint16_t xPos, uint16_t yPos, float speed, Texture2D textureForBullets, float delay);
+    Player(uint16_t xPos, uint16_t yPos, float speed, float delay);
 
     ~Player();
     void Event();
     void Update();
     void Draw();
+    bool update() override;
 
 private:
     float speed;

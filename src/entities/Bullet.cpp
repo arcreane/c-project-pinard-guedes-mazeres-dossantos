@@ -24,3 +24,7 @@ void Bullet::Reset(uint16_t xPos)
 void Bullet::Draw() {
     DrawRectangleRec({8,8,8,8},{255,255,255,255});
 }
+
+bool Bullet::update() {
+    return this->hit;
+}

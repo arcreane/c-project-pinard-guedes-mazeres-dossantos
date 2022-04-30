@@ -1,14 +1,14 @@
 #include "Player.h"
 
 
-Player::Player(uint16_t xPos, uint16_t yPos, float speed, Texture2D textureForBullets, float delay)
+Player::Player(uint16_t xPos, uint16_t yPos, float speed, float delay)
     : Entity(xPos, yPos, IMG_PATH), speed(speed), shootingTimer(0), shootingDelay(delay) {
         maxBullets = 4;
         bullets = new Bullet[4]{
-            Bullet(xPos, yPos, textureForBullets,  speed * 3.0f)
-            Bullet(xPos, yPos, textureForBullets,  speed * 3.0f)
-            Bullet(xPos, yPos, textureForBullets,  speed * 3.0f)
-            Bullet(xPos, yPos, textureForBullets,  speed * 3.0f)
+            Bullet(xPos, yPos, speed * 3.0f),
+            Bullet(xPos, yPos, speed * 3.0f),
+            Bullet(xPos, yPos, speed * 3.0f),
+            Bullet(xPos, yPos, speed * 3.0f)
         };
 }
 
@@ -71,4 +71,9 @@ void Player::Draw(){
         }
     }
 //    sprite->IMG_PATH;
+}
+
+bool Player::update() {
+    Update();
+    return true;
 }
