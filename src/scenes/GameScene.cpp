@@ -65,7 +65,7 @@ void GameScene::draw() const {
 
 Scene *GameScene::update() {
 
-    Entity::resetAttackParameters();
+//    Entity::resetAttackParameters();
 
     // Update all entities
     for (auto it = this->listEntities.begin();
