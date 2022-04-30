@@ -67,7 +67,7 @@ Scene *GameScene::update() {
     // Update all entities
     for (auto it = this->listEntities.begin();
          it != this->listEntities.end(); it++) {
-        if ((*it)->update() == false) {
+        if (!(*it)->update()) {
             this->listEntities.erase(it);
             delete (*it);
         }

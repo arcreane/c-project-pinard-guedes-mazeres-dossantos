@@ -3,8 +3,6 @@
 #include "entities/Bullet.h"
 #include "entities/Entity.h"
 
-#define IMG_PATH "assets/player.png"
-
 #ifndef _PLAYER_
 #define _PLAYER_
 
