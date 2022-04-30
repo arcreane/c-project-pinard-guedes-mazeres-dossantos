@@ -24,7 +24,7 @@ void Player::event(){
     }
     else if(IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))
     {
-        xPos += GetFrameTime() * speed;
+        xPos += GetFrameTime() * speed + 0.5;
         if(xPos + sprite.width > GetScreenWidth()) xPos = GetScreenWidth() - sprite.width;
     }
     else
@@ -74,5 +74,4 @@ void Player::draw(){
             bullets[i].draw();
         }
     }
-//    sprite->IMG_PATH;
 }
