@@ -33,7 +33,7 @@ public :
     void reset(uint16_t xPos);
 
     /**
-     *
+     * Draw the action of shooting a bullet
      */
     void draw();
 

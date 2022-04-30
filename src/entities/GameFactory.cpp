@@ -1,3 +1,4 @@
+#include <entities/player/Player.h>
 #include "scenes/GameScene.h"
 #include "entities/enemies/Enemy.h"
 #include "entities/enemies/Troll.h"
@@ -7,6 +8,7 @@
 void GameFactory::factoryNewGame(std::vector<Entity *> &list) {
 
     // TODO: create player when implemented
+    Player player(0, 0, 32, 2);
 
     GameFactory::factoryNewHorde(list);
 }

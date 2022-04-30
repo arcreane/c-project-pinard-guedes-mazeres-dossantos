@@ -18,14 +18,42 @@
 
 class Player : public Entity{
 public:
+
+    /**
+     * Create a new Player
+     * @param xPos, yPos position for the Entity
+     * @param speed
+     */
     Player(uint16_t xPos, uint16_t yPos, float speed);
 
+    /**
+     * Create a new Player
+     * @param xPos, yPos position for the Entity
+     * @param speed
+     * @param delay
+     */
     Player(uint16_t xPos, uint16_t yPos, float speed, float delay);
 
+    /**
+     * Destructor for Player, unloads the bullets from GPU.
+     */
     ~Player();
-    void Event();
-    void Update();
-    void Draw();
+
+    /**
+     * Capte the user keys for moving the player or shoot a bullet
+     */
+    void event();
+
+    /**
+     * ??
+     */
+    void draw();
+
+    /**
+     * Update the Player
+     * @return <code>false</code> if the entity should be discarded from the
+     * scene, <code>true</code> otherwise
+     */
     bool update() override;
 
 private:

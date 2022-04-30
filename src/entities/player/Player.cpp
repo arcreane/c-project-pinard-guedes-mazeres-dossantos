@@ -15,7 +15,7 @@ Player::Player(uint16_t xPos, uint16_t yPos, float speed, float delay)
 Player::Player(uint16_t xPos, uint16_t yPos, float speed)
         : Entity(xPos, yPos, IMG_PATH), speed(speed) {}
 
-void Player::Event(){
+void Player::event(){
     if(IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_Q))
     {
         xPos -= GetFrameTime() * speed;
@@ -34,9 +34,9 @@ void Player::Event(){
     {
         for(int i=0; i<maxBullets; i++)
         {
-            if(bullets[i].IsHit())
+            if(bullets[i].isHit())
             {
-                bullets[i].Reset(xPos);
+                bullets[i].reset(xPos);
                 shootingTimer = shootingDelay;
                 break;
             }
@@ -52,28 +52,24 @@ Player::~Player()
     delete[] bullets;
 }
 
-void Player::Update(){
+bool Player::update(){
     for(int i = 0; i < maxBullets; i++)
     {
-        if(bullets[i].IsHit())
+        if(bullets[i].isHit())
         {
-            bullets[i].Update();
+            bullets[i].update();
         }
     }
+    return true;
 }
 
-void Player::Draw(){
+void Player::draw(){
     for(int i = 0; i < maxBullets; i++)
     {
-        if(bullets[i].IsHit())
+        if(bullets[i].isHit())
         {
-            bullets[i].Draw();
+            bullets[i].draw();
         }
     }
 //    sprite->IMG_PATH;
-}
-
-bool Player::update() {
-    Update();
-    return true;
 }
