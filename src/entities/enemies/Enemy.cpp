@@ -1,9 +1,20 @@
 #include "Enemy.h"
 #include <cmath>
 
-Enemy::Enemy(uint16_t xPos, uint16_t yPos, Texture2D sprite, double life,
+/**
+ * Check if an entity at given position is out of the game bounds.
+ * @param pos the y position of the entity
+ * @param sprite the entity's sprite
+ * @return <code>true</code> if the entity is out of bounds, <code>false</code>
+ * otherwise
+ */
+bool isOutOfBound(uint16_t pos, const Texture2D &sprite) {
+    return pos < 0 || pos + sprite.width > GetScreenWidth();
+}
+
+Enemy::Enemy(uint16_t xPos, uint16_t yPos, const char spritePath[], double life,
              double strength, double fireRate) :
-        Entity(xPos, yPos, sprite), life{life}, strength{strength},
+        Entity(xPos, yPos, spritePath), life{life}, strength{strength},
         fireRate{fireRate} {}
 
 void Enemy::getLife(double *l, double damage) {
@@ -20,11 +31,20 @@ void Enemy::getFireRate(double *f) const {
 }
 
 bool Enemy::update() {
+    uint16_t xNew = this->xPos + Enemy::hordeSpeed;
+    uint16_t yNew = this->yPos + (Enemy::hordeShouldAdvance ? 10 : 0);
+    if (Enemy::hordeShouldTurnAround || isOutOfBound(xNew, this->sprite)) {
+        Enemy::hordeShouldTurnAround = true;
+    }
+    else {
+        this->xPos = xNew;
+        this->yPos = yNew;
+    }
     return this->life > 0;
 }
 
 void Enemy::resetHordeBehavior() {
-    Enemy::hordeSpeed = (int16_t) (abs(Enemy::hordeSpeed) + 10);
+    Enemy::hordeSpeed = (int16_t) (abs(Enemy::hordeSpeed) + 1);
     Enemy::hordeShouldAdvance = false;
     Enemy::hordeShouldTurnAround = false;
 }
@@ -37,7 +57,7 @@ void Enemy::updateHordeBehavior() {
     Enemy::hordeShouldTurnAround = false;
 }
 
-int16_t Enemy::hordeSpeed = 0;
+int16_t Enemy::hordeSpeed = 1;
 
 bool Enemy::hordeShouldAdvance = false;
 

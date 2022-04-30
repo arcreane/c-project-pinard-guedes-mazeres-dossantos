@@ -13,12 +13,12 @@ public:
 
     /**
      * Create a new Enemy
-     * @param xPos, yPos, sprite params for Entity
+     * @param xPos, yPos, spritePath params for Entity
      * @param life when the life = 0, the enemy is dead
      * @param strength is the resistance of enemy when he is attacked
      * @param fireRate is the shooting speed in seconds
      */
-    Enemy(uint16_t xPos, uint16_t yPos, Texture2D sprite, double life, double strength, double fireRate);
+    Enemy(uint16_t xPos, uint16_t yPos, const char spritePath[], double life, double strength, double fireRate);
 
     /**
      * Getter for life with a damage if the enemy is attacked

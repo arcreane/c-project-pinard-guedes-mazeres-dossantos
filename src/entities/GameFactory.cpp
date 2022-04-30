@@ -1,5 +1,7 @@
 #include "scenes/GameScene.h"
 #include "entities/enemies/Enemy.h"
+#include "entities/enemies/Troll.h"
+#include "entities/enemies/Zombie.h"
 #include "GameFactory.h"
 
 void GameFactory::factoryNewGame(std::vector<Entity *> &list) {
@@ -13,5 +15,8 @@ void GameFactory::factoryNewHorde(std::vector<Entity *> &list) {
 
     Enemy::resetHordeBehavior();
 
-    //TODO: create enemies when implemented
+    for (int x = 200; x <= 800; x += 100) {
+        list.push_back(new Troll(x, 100));
+        list.push_back(new Zombie(x, 300));
+    }
 }

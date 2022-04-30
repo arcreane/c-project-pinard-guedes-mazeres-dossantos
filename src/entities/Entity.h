@@ -17,9 +17,14 @@ public:
     /**
      * Creates a new entity.
      * @param[in] xPos, yPos - initial coordinates of the entity
-     * @param[in] sprite - the sprite texture resource
+     * @param[in] spritePath - path to the sprite texture resource
      */
-    Entity(uint16_t xPos, uint16_t yPos, Texture2D sprite);
+    Entity(uint16_t xPos, uint16_t yPos, const char spritePath[]);
+
+    /**
+     * Destructor for Entity, unloads the sprite texture from GPU.
+     */
+    virtual ~Entity();
 
     /**
      * Getter for the position of the entity.
@@ -41,7 +46,7 @@ public:
      */
     virtual bool update() = 0;
 
-private:
+protected:
 
     /**
      * Sprite texture resource loaded in CPU

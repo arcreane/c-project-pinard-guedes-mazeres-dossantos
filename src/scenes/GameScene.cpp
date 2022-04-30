@@ -69,8 +69,10 @@ Scene *GameScene::update() {
          it != this->listEntities.end(); it++) {
         if ((*it)->update() == false) {
             this->listEntities.erase(it);
+            delete (*it);
         }
     }
+    Enemy::updateHordeBehavior();
 
     // If there is no more enemies, create new horde
     if (std::find_if(
