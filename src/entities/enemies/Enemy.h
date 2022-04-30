@@ -22,10 +22,8 @@ public:
 
     /**
      * Getter for life with a damage if the enemy is attacked
-     * @param l life
-     * @param damage
      */
-    virtual void getLife(double* l, double damage = 0) final;
+    virtual double getLife() final override;
 
     /**
      * Getter for strength capacity

@@ -43,7 +43,7 @@ public:
     void event();
 
     /**
-     * Hire a bullet
+     * Fire a bullet
      */
     void draw(Bullet bullet);
 
@@ -53,6 +53,14 @@ public:
      * scene, <code>true</code> otherwise
      */
     bool update() override;
+
+    /**
+     * Getter for life with a damage if the player is attacked
+     * @param l life
+     * @param damage
+     * @param ennemy if ennemy is true, nothing append because player not attack himself
+     */
+    double getLife() override;
 
 private:
     float speed;

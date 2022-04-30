@@ -17,9 +17,17 @@ Enemy::Enemy(uint16_t xPos, uint16_t yPos, const char spritePath[], double life,
         Entity(xPos, yPos, spritePath), life{life}, strength{strength},
         fireRate{fireRate} {}
 
-void Enemy::getLife(double *l, double damage) {
-    this->life -= (damage - damage / this->strength * 100);
-    *l = this->life;
+double Enemy::getLife() {
+    if(!fire_origin_enemy && damage_of_current_attack > 0){
+        if (xPos_of_fire == xPos){
+            double damages = (damage_of_current_attack - damage_of_current_attack * this->strength / 100);
+            this->life -= damages;
+            BeginDrawing();
+            DrawText("- ${damages}", xPos, yPos, 2, RED);
+            EndDrawing();
+        }
+    }
+    return this->life;
 }
 
 void Enemy::getStrength(double *s) const {
@@ -40,7 +48,7 @@ bool Enemy::update() {
         this->xPos = xNew;
         this->yPos = yNew;
     }
-    return this->life > 0;
+    return getLife() > 0;
 }
 
 void Enemy::resetHordeBehavior() {

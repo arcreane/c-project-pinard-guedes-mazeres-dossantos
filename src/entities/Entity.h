@@ -46,6 +46,16 @@ public:
      */
     virtual bool update() = 0;
 
+    /**
+     * An entitie may attack, we update and return its life
+     * @return life restant of the Entity
+     *
+     * @author Amélie Guédès (MelyMelo8)
+     */
+    virtual double getLife() = 0;
+
+    static void resetAttackParameters();
+
 protected:
 
     /**
@@ -58,4 +68,20 @@ protected:
      */
     uint16_t xPos, yPos;
 
+    /**
+     * The life of the Entity
+     */
+    double life;
+
+    /**
+     * statics attributes for the management of attacks
+     * @author Amélie Guédès
+     */
+    static uint16_t xPos_of_fire;
+    static uint16_t yPos_of_fire;
+    /**
+     * true if an ennemy attack, false if the player attack
+     */
+    static bool fire_origin_enemy;
+    static double damage_of_current_attack;
 };

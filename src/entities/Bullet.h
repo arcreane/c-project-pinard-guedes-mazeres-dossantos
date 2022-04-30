@@ -45,6 +45,13 @@ public :
      */
     bool update() override;
 
+    /**
+     * Bullet is an Entity so he has a life of 0 and can't be attack
+     * @param x, damage, ennemy params of the overide function
+     * @return 0
+     */
+    double getLife() override;
+
 private:
     /**
      * Speed of the bullet

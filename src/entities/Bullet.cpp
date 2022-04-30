@@ -6,7 +6,7 @@ Bullet::Bullet(uint16_t xPos, uint16_t yPos, float speed)
 bool Bullet::update()
 {
     yPos -= GetFrameTime() * speed;
-    if(yPos < 0 || yPos > GetScreenHeight()) hit = true;
+    if(yPos < 0 || yPos > GetScreenHeight()) hit = false;
     return true;
 }
 
@@ -22,8 +22,17 @@ void Bullet::reset(uint16_t xPos)
 }
 
 void Bullet::draw(uint16_t x, uint16_t y) {
-    Vector2 v1 = {static_cast<float>(x + getSprite().width), static_cast<float>(y)};
-    Vector2 v2 = {static_cast<float>(x + getSprite().width), 0};
+    float X = static_cast<float>(x + getSprite().width);
+    Vector2 v1 = {X, static_cast<float>(y)};
+    Vector2 v2 = {X, 0};
     DrawLineEx(v1, v2, 5, BLACK);
     hit = false;
+    // modified entities attack parameters
+    Entity::xPos_of_fire = x;
+    Entity::damage_of_current_attack = 100;
+    Entity::fire_origin_enemy = false;
+}
+
+double Bullet::getLife() {
+    return this->life;
 }

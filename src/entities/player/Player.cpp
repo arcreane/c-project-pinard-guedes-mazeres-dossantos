@@ -64,11 +64,27 @@ bool Player::update(){
             bullets[i].update();
         }
     }
-    return true;
+    return getLife() > 0;
 }
 
 void Player::draw(Bullet bullet){
     BeginDrawing();
     bullet.draw(xPos, yPos);
     EndDrawing();
+}
+
+double Player::getLife() {
+    if(fire_origin_enemy && damage_of_current_attack > 0){
+        // Player is attack
+        if (xPos_of_fire == xPos){
+            this->life -= damage_of_current_attack;
+            BeginDrawing();
+            DrawText("- ${damages}", xPos, yPos, 2, RED);
+            EndDrawing();
+        }
+    } else if(yPos_of_fire <= yPos) {
+        // An enemy is on the heigth of the player : Game Over
+        this->life = 0;
+    }
+    return this->life;
 }
