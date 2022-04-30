@@ -1,5 +1,5 @@
 #include "Window.h"
-#include "Player.h"
+#include "entities/player/Player.h"
 
 #define IMG_PATH "assets/player.png"
 #define BULLET_PATH "assets/shoot.png"
