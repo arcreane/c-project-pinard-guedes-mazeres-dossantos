@@ -49,6 +49,7 @@ void Player::event(){
 
 Player::~Player()
 {
+    UnloadTexture(this->sprite);
     delete[] bullets;
 }
 

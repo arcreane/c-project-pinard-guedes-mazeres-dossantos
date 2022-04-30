@@ -35,9 +35,9 @@ public:
     Player(uint16_t xPos, uint16_t yPos, float speed, float delay);
 
     /**
-     * Destructor for Player, unloads the bullets from GPU.
+     * Destructor for Player, unloads the bullets and the sprite texture from GPU.
      */
-    ~Player();
+    ~Player() override;
 
     /**
      * Capte the user keys for moving the player or shoot a bullet
