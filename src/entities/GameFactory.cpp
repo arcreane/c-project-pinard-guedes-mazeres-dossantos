@@ -7,10 +7,9 @@
 
 void GameFactory::factoryNewGame(std::vector<Entity *> &list) {
 
-    // TODO: create player when implemented
+    list.push_back(new Player(GetScreenWidth() / 2, GetScreenHeight() - 100, 32, 2));
 
     GameFactory::factoryNewHorde(list);
-    list.push_back(new Player(GetScreenWidth() / 2, GetScreenHeight() - 100, 32, 2));
 }
 
 void GameFactory::factoryNewHorde(std::vector<Entity *> &list) {

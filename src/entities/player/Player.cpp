@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <iostream>
 
 Player::Player(uint16_t xPos, uint16_t yPos, float speed)
         : Entity(xPos, yPos, ASSETS_PATH "player.png"), speed(speed) {}
@@ -15,19 +16,20 @@ Player::Player(uint16_t xPos, uint16_t yPos, float speed, float delay)
 }
 
 void Player::event(){
-    if(IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_Q))
+    // KEY_A and not KEY_Q because raylib keys are for QWERTY keypad
+    if(IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A))
     {
         xPos -= GetFrameTime() * speed;
-        if(xPos < 0) xPos = 10;
+        if(xPos < 0) xPos = 0;
     }
     else if(IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))
     {
         xPos += GetFrameTime() * speed;
-        if(xPos > GetScreenWidth()) xPos = GetScreenWidth() - 10;
+        if(xPos + sprite.width > GetScreenWidth()) xPos = GetScreenWidth() - sprite.width;
     }
     else
     {
-        xPos = 8;
+        xPos = GetScreenWidth() / 2;
     }
     if(shootingTimer <= 0.0f && IsKeyPressed(KEY_SPACE))
     {
@@ -53,6 +55,7 @@ Player::~Player()
 }
 
 bool Player::update(){
+    event();
     for(int i = 0; i < maxBullets; i++)
     {
         if(bullets[i].isHit())
