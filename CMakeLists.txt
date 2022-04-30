@@ -14,7 +14,7 @@ file(GLOB_RECURSE PROJECT_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/s
 set(PROJECT_INCLUDE "${CMAKE_CURRENT_LIST_DIR}/src/")
 
 # Declaring executable
-add_executable(${PROJECT_NAME} src/entities/enemies/Zombie.cpp src/entities/enemies/Zombie.h)
+add_executable(${PROJECT_NAME} src/entities/enemies/Zombie.cpp src/entities/enemies/Zombie.h src/entities/enemies/Troll.cpp src/entities/enemies/Troll.h)
 target_sources(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_INCLUDE})
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
