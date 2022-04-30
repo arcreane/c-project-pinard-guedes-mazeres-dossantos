@@ -82,7 +82,7 @@ double Player::getLife() {
             DrawText("- ${damages}", xPos, yPos, 2, RED);
             EndDrawing();
         }
-    } else if(yPos_of_fire <= yPos) {
+    } else if(yPos_of_fire > yPos) {
         // An enemy is on the heigth of the player : Game Over
         this->life = 0;
     }
