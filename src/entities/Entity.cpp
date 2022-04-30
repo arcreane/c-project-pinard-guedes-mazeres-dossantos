@@ -1,7 +1,7 @@
 #include "Entity.h"
 
-Entity::Entity(uint16_t xPos, uint16_t yPos, const char spritePath[]) :
-    xPos {xPos}, yPos {yPos}, sprite {LoadTexture(spritePath)}, life(0) {}
+Entity::Entity(uint16_t xPos, uint16_t yPos, const char spritePath[], double life) :
+    xPos {xPos}, yPos {yPos}, sprite {LoadTexture(spritePath)}, life{life}{}
 
 Entity::~Entity() {
     UnloadTexture(this->sprite);

@@ -14,7 +14,7 @@ bool isOutOfBound(uint16_t pos, const Texture2D &sprite) {
 
 Enemy::Enemy(uint16_t xPos, uint16_t yPos, const char spritePath[], double life,
              double strength, double fireRate) :
-        Entity(xPos, yPos, spritePath), life{life}, strength{strength},
+        Entity(xPos, yPos, spritePath, life), strength{strength},
         fireRate{fireRate} {}
 
 double Enemy::getLife() {

@@ -1,7 +1,7 @@
 #include "Bullet.h"
 
 Bullet::Bullet(uint16_t xPos, uint16_t yPos, float speed)
-        : Entity(xPos, yPos, ASSETS_PATH "shoot.png"), speed(speed), hit(true) {}
+        : Entity(xPos, yPos, ASSETS_PATH "shoot.png", 0), speed(speed), hit(true) {}
 
 bool Bullet::update()
 {

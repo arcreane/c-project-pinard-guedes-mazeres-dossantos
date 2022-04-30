@@ -7,6 +7,7 @@
 #include "raylib.h"
 #include "entities/GameFactory.h"
 #include "entities/enemies/Enemy.h"
+#include "entities/Entity.h"
 
 GameScene::GameScene() :
         background{LoadTexture(ASSETS_PATH "grass.png")} {

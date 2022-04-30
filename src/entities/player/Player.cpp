@@ -2,10 +2,10 @@
 #include <iostream>
 
 Player::Player(uint16_t xPos, uint16_t yPos, float speed)
-        : Entity(xPos, yPos, ASSETS_PATH "player.png"), speed(speed) {}
+        : Entity(xPos, yPos, ASSETS_PATH "player.png", 100), speed(speed) {}
 
 Player::Player(uint16_t xPos, uint16_t yPos, float speed, float delay)
-    : Entity(xPos, yPos, ASSETS_PATH "player.png"), speed(speed), shootingTimer(0), shootingDelay(delay) {
+    : Entity(xPos, yPos, ASSETS_PATH "player.png", 100), speed(speed), shootingTimer(0), shootingDelay(delay) {
         maxBullets = 4;
         bullets = new Bullet[4]{
             Bullet(xPos, yPos, speed * 3.0f),

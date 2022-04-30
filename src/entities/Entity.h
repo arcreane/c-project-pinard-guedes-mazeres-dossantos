@@ -18,8 +18,9 @@ public:
      * Creates a new entity.
      * @param[in] xPos, yPos - initial coordinates of the entity
      * @param[in] spritePath - path to the sprite texture resource
+     * @param[in] life - initial life of the Entity
      */
-    Entity(uint16_t xPos, uint16_t yPos, const char spritePath[]);
+    Entity(uint16_t xPos, uint16_t yPos, const char spritePath[], double life);
 
     /**
      * Destructor for Entity, unloads the sprite texture from GPU.
@@ -54,8 +55,18 @@ public:
      */
     virtual double getLife() = 0;
 
+    /**
+     * Initialize parameters of attack inofensives for all entities
+     */
     static void resetAttackParameters();
 
+    /**
+     * Edit the parameters of attack for hunting part of entities
+     * @param x xPos of attack begin
+     * @param y > 0 if an Enemy arrive on end of the screen
+     * @param enemy true if an enemy attack, false otherwise
+     * @param damage the puissance of the attack
+     */
     static void editAttackParameters(uint16_t x, uint16_t y, bool enemy, double damage);
 
 protected:

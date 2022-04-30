@@ -63,7 +63,7 @@ private:
     /**
      * params for the capacities of an enemy
      */
-    double life, strength, fireRate;
+    double strength, fireRate;
 
     /**
      * Speed of the enemy, in pixels per frame.
