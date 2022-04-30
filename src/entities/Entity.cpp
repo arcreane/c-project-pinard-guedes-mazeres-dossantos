@@ -23,8 +23,16 @@ void Entity::resetAttackParameters() {
     Entity::damage_of_current_attack = 0;
 }
 
+void Entity::editAttackParameters(uint16_t x, uint16_t y, bool enemy, double damage) {
+    Entity::xPos_of_fire = x;
+    Entity::yPos_of_fire = y;
+    Entity::fire_origin_enemy = enemy;
+    Entity::damage_of_current_attack = damage;
+}
+
+
 // initiating the attack's parameters for hurting any entities
-uint16_t xPos_of_fire = 0;
-uint16_t yPos_of_fire = 0;
-bool fire_origin_enemy = true;
-double damage_of_current_attack = 0;
+uint16_t Entity::xPos_of_fire = 0;
+uint16_t Entity::yPos_of_fire = 0;
+bool Entity::fire_origin_enemy = true;
+double Entity::damage_of_current_attack = 0;

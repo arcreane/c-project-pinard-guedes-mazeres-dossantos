@@ -56,6 +56,8 @@ public:
 
     static void resetAttackParameters();
 
+    static void editAttackParameters(uint16_t x, uint16_t y, bool enemy, double damage);
+
 protected:
 
     /**
