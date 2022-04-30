@@ -37,14 +37,15 @@ void Player::event(){
         {
             if(bullets[i].isHit())
             {
-                bullets[i].reset(xPos);
+                draw(bullets[i]);
+//                bullets[i].reset(xPos);
                 shootingTimer = shootingDelay;
                 break;
             }
         }
     }
     else{
-        shootingTimer -= GetFrameTime();
+        shootingTimer -= GetFrameTime() * 2;
     }
 }
 
@@ -66,12 +67,8 @@ bool Player::update(){
     return true;
 }
 
-void Player::draw(){
-    for(int i = 0; i < maxBullets; i++)
-    {
-        if(bullets[i].isHit())
-        {
-            bullets[i].draw();
-        }
-    }
+void Player::draw(Bullet bullet){
+    BeginDrawing();
+    bullet.draw(xPos, yPos);
+    EndDrawing();
 }

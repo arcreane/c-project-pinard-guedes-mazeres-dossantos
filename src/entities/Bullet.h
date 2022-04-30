@@ -15,7 +15,7 @@ class Bullet : public Entity
 {
 public :
     /**
-     * Create a new Bullet
+     * Create a new Bullet is hitable
      * @param xPos, yPos position for the Entity
      * @param speed
      */
@@ -34,8 +34,9 @@ public :
 
     /**
      * Draw the action of shooting a bullet
+     * @param x, y position of the Player
      */
-    void draw();
+    void draw(uint16_t x, uint16_t y);
 
     /**
      * Update the bullet
@@ -45,7 +46,14 @@ public :
     bool update() override;
 
 private:
-    float speed;
+    /**
+     * Speed of the bullet
+     */
+    const float speed;
+
+    /**
+     * True if the bullet can be hire
+     */
     bool hit;
 };
 #endif

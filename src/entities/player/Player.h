@@ -43,9 +43,9 @@ public:
     void event();
 
     /**
-     * ??
+     * Hire a bullet
      */
-    void draw();
+    void draw(Bullet bullet);
 
     /**
      * Update the Player
