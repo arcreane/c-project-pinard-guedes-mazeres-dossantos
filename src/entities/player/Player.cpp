@@ -33,14 +33,21 @@ void Player::event(){
     }
     if(shootingTimer <= 0.0f && IsKeyPressed(KEY_SPACE))
     {
-        for(int i=0; i<maxBullets; i++)
+        int i;
+        std::cout << "I can hurt " << shootingTimer << std::endl;
+        for(i=0; i<maxBullets; i++)
         {
             if(bullets[i].isHit())
             {
                 draw(bullets[i]);
-//                bullets[i].reset(xPos);
                 shootingTimer = shootingDelay;
                 break;
+            }
+        }
+        if(i == maxBullets){
+            // no bullet can be use : recharge
+            for(i=0; i<maxBullets; i++){
+                bullets[i].reset(xPos);
             }
         }
     }
@@ -81,6 +88,7 @@ double Player::getLife() {
             BeginDrawing();
             DrawText("- ${damages}", xPos, yPos, 2, RED);
             EndDrawing();
+            Entity::resetAttackParameters();
         }
     } else if(yPos_of_fire > yPos) {
         // An enemy is on the heigth of the player : Game Over

@@ -6,7 +6,7 @@ Bullet::Bullet(uint16_t xPos, uint16_t yPos, float speed)
 bool Bullet::update()
 {
     yPos -= GetFrameTime() * speed;
-    if(yPos < 0 || yPos > GetScreenHeight()) hit = false;
+    if(yPos < 0 || yPos > GetScreenHeight()) hit = true;
     return true;
 }
 

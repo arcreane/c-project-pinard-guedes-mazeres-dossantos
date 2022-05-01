@@ -25,6 +25,7 @@ double Enemy::getLife() {
             BeginDrawing();
             DrawText("- ${damages}", xPos, yPos, 2, RED);
             EndDrawing();
+            Entity::resetAttackParameters();
         }
     }
     return this->life;
