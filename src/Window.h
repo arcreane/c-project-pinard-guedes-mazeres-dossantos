@@ -15,8 +15,7 @@ class Window {
 public:
 
     /// Game window title
-    static constexpr char WINDOW_TITLE[] = "HELLO WORLD";
-    // TODO : find out a name for the final product
+    static constexpr char WINDOW_TITLE[] = "ZOMBIE WORLD";
 
     /// Game window resolution (width)
     static constexpr uint16_t WINDOW_WIDTH = 1600;
