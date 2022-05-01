@@ -17,7 +17,7 @@ void GameFactory::factoryNewHorde(std::vector<Entity *> &list) {
     Enemy::resetHordeBehavior();
 
     for (int x = 200; x <= 800; x += 100) {
-        list.push_back(new Troll(x, 100));
         list.push_back(new Zombie(x, 300));
+        list.push_back(new Troll(x, 100));
     }
 }

@@ -8,6 +8,7 @@
 #include "entities/GameFactory.h"
 #include "entities/enemies/Enemy.h"
 #include "entities/Entity.h"
+#include "entities/player/Player.h"
 
 GameScene::GameScene() :
         background{LoadTexture(ASSETS_PATH "grass.png")} {
@@ -85,6 +86,16 @@ Scene *GameScene::update() {
                 return dynamic_cast<const Enemy *>(it) != nullptr;
             }) == this->listEntities.end()) {
         GameFactory::factoryNewHorde(this->listEntities);
+    }
+
+    if (std::find_if(
+            this->listEntities.begin(), this->listEntities.end(),
+            [](Entity *it) -> bool {
+                // instanceof
+                return dynamic_cast<const Player *>(it) != nullptr;
+            }) == this->listEntities.end()) {
+        delete this;
+        return new MainMenuScene();
     }
 
     // Exit game on Escape press

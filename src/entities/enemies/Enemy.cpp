@@ -49,7 +49,9 @@ bool Enemy::update() {
         this->xPos = xNew;
         this->yPos = yNew;
     }
+    if (yPos >= GetScreenHeight() - 200 ) yPos_of_fire = yPos;
     return getLife() > 0;
+
 }
 
 void Enemy::resetHordeBehavior() {
@@ -66,7 +68,7 @@ void Enemy::updateHordeBehavior() {
     Enemy::hordeShouldTurnAround = false;
 }
 
-int16_t Enemy::hordeSpeed = 1;
+int16_t Enemy::hordeSpeed = 10;
 
 bool Enemy::hordeShouldAdvance = false;
 
