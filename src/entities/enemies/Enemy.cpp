@@ -68,7 +68,7 @@ void Enemy::updateHordeBehavior() {
     Enemy::hordeShouldTurnAround = false;
 }
 
-int16_t Enemy::hordeSpeed = 10;
+int16_t Enemy::hordeSpeed = 1;
 
 bool Enemy::hordeShouldAdvance = false;
 
