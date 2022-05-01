@@ -25,7 +25,7 @@ void Bullet::draw(uint16_t x, uint16_t y) {
     float X = static_cast<float>(x + getSprite().width);
     Vector2 v1 = {X, static_cast<float>(y)};
     Vector2 v2 = {X, 0};
-    DrawLineEx(v1, v2, 5, BLACK);
+    DrawLineEx(v1, v2, 8, BLACK);
     hit = false;
     // modified entities attack parameters
     Entity::editAttackParameters(x, 0, false, 20);
