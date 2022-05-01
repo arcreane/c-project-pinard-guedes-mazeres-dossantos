@@ -7,7 +7,7 @@
 
 void GameFactory::factoryNewGame(std::vector<Entity *> &list) {
 
-    list.push_back(new Player(GetScreenWidth() / 2, GetScreenHeight() - 100, 32, 2));
+    list.push_back(new Player(GetScreenWidth() / 2, GetScreenHeight() - 200, 32, 2));
 
     GameFactory::factoryNewHorde(list);
 }

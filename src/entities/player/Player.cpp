@@ -2,7 +2,9 @@
 #include <iostream>
 
 Player::Player(uint16_t xPos, uint16_t yPos, float speed)
-        : Entity(xPos, yPos, ASSETS_PATH "players.png", 100), speed(speed) {}
+        : Entity(xPos, yPos, ASSETS_PATH "players.png", 100), speed(speed) {
+    xPos -= sprite.width/2;
+}
 
 Player::Player(uint16_t xPos, uint16_t yPos, float speed, float delay)
     : Entity(xPos, yPos, ASSETS_PATH "players.png", 100), speed(speed), shootingTimer(0), shootingDelay(delay) {
@@ -16,12 +18,12 @@ Player::Player(uint16_t xPos, uint16_t yPos, float speed, float delay)
 }
 
 void Player::event(){
-    yPos = GetScreenHeight() - sprite.height;
+    //yPos = GetScreenHeight() - sprite.height;
     // KEY_A and not KEY_Q because raylib keys are for QWERTY keypad
     if(IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A))
     {
         xPos -= GetFrameTime() * speed * 7;
-        if(xPos < 0) xPos = 0;
+        if(xPos < 10) xPos = 10;
     }
     else if(IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))
     {
@@ -54,7 +56,7 @@ void Player::event(){
         }
     }
     else{
-        shootingTimer -= GetFrameTime() * 2;
+        shootingTimer -= GetFrameTime() * 5;
     }
 }
 
