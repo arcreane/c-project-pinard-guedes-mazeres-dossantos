@@ -20,13 +20,13 @@ void Player::event(){
     // KEY_A and not KEY_Q because raylib keys are for QWERTY keypad
     if(IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_A))
     {
-        xPos -= GetFrameTime() * speed;
+        xPos -= GetFrameTime() * speed * 7;
         if(xPos < 0) xPos = 0;
     }
     else if(IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))
     {
-        xPos += GetFrameTime() * speed + 0.5;
-        if(xPos + sprite.width > GetScreenWidth()) xPos = GetScreenWidth() - sprite.width/2;
+        xPos += GetFrameTime() * speed * 7 + 0.5;
+        if(xPos + sprite.width > GetScreenWidth()) xPos = GetScreenWidth() - sprite.width;
     }
     /*
     else
