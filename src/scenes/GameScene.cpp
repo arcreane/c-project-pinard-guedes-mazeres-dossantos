@@ -69,10 +69,12 @@ Scene *GameScene::update() {
 
     // Update all entities
     for (auto it = this->listEntities.begin();
-         it != this->listEntities.end(); it++) {
+         it != this->listEntities.end();) {
         if (!(*it)->update()) {
-            this->listEntities.erase(it);
             delete (*it);
+            this->listEntities.erase(it);
+        } else {
+            it++;
         }
     }
     Enemy::updateHordeBehavior();
