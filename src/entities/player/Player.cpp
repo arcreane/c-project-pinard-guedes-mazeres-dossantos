@@ -34,7 +34,6 @@ void Player::event(){
     if(shootingTimer <= 0.0f && IsKeyPressed(KEY_SPACE))
     {
         int i;
-        std::cout << "I can hurt " << shootingTimer << std::endl;
         for(i=0; i<maxBullets; i++)
         {
             if(bullets[i].isHit())

@@ -28,7 +28,7 @@ void Bullet::draw(uint16_t x, uint16_t y) {
     DrawLineEx(v1, v2, 5, BLACK);
     hit = false;
     // modified entities attack parameters
-    Entity::editAttackParameters(x, 0, false, 100);
+    Entity::editAttackParameters(x, 0, false, 20);
 }
 
 double Bullet::getLife() {
