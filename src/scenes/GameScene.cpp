@@ -61,6 +61,8 @@ void GameScene::draw() const {
         DrawTexture(e->getSprite(), x, y, WHITE);
     }
 
+    DrawText(TextFormat("Score : %i", this->score), 10, 10, 30, PURPLE);
+
     EndDrawing();
 }
 
@@ -72,6 +74,7 @@ Scene *GameScene::update() {
         if (!(*it)->update()) {
             delete (*it);
             this->listEntities.erase(it);
+            this->score += 10;
         } else {
             it++;
         }
