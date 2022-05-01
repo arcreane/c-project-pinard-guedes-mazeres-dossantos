@@ -28,3 +28,9 @@ Nous avons utilisé l'IDE **Clion** de JetBrain, sur le système d'exploitation 
 * Nicolas Dos Santos (Nicolas-dos6)
 
 ***
+<h2>Diagrammes UML</h2>
+On a utilisé le logiciel Bouml pour faire ces diagrammes, par conséquent, il vaut mieux l'installer pour pouvoir ouvrir les fichiers de [UML-CppProject](UML-CppProject).
+
+<h3>Diagramme de classes</h3>
+
+<h3>Diagramme de séquence</h3>
