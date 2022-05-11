@@ -12,7 +12,7 @@ On a appelé notre jeu : **ZOMBIE WORLD**.
 * Tirer sur les ennemies : ``ESPACE``
 * Quitter la partie : ``ECHAP``
 
-<h3>Illustration</h3>
+###Illustration
 ![Jeu Zombie World](assets/readMe/zombie_world_screen.png)
 
 ***
